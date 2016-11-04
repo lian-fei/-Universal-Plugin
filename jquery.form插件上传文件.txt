@@ -1,0 +1,20 @@
+
+        var _html='<form id="formToUpdate" method="post" action="#" enctype="multipart/form-data">'+
+            '<input type="text" name="t1"><br />'+
+            '<input type="file" name="f1"><br />'+
+            '<input id="ajaxSubmit" type="button" value="异步提交">'+
+            '</form>';
+
+         _this.viewerElement.prepend(_html);
+
+        //异步提交表单
+        $("#ajaxSubmit").on("click", function () {
+            console.log($(this));
+            $("#formToUpdate").ajaxSubmit({
+                type: 'post',
+                url: '/upload',
+                success: function (data) {
+                    console.log(data);
+                }
+            });
+        });
